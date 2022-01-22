@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QueratoCheck.InformationEntryPage"
+             Title="Datos del Paciente">
+
+    <ContentPage.Resources>
+        <!-- Implicit styles -->
+        <Style TargetType="{x:Type Editor}">
+            <Setter Property="BackgroundColor"
+                    Value="{StaticResource AppBackgroundColor}" />
+        </Style>
+
+        <Style TargetType="Button"
+               ApplyToDerivedTypes="True"
+               CanCascade="True">
+            <Setter Property="FontSize" Value="Medium" />
+            <Setter Property="BackgroundColor" Value="#1976D2" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="CornerRadius" Value="5" />
+        </Style>
+        
+    </ContentPage.Resources>
+    <ScrollView>
+        <StackLayout Margin="{StaticResource PageMargin}">
+            <Label Text="Bienvenido, favor de ingresar los siguientes datos:" FontSize="Title" Padding="30,10,30,10"/>
+
+            <Label Text="Nombre completo del paciente" FontSize="22" Padding="10"/>
+            <Entry Placeholder="Nombre del paciente" Text="{Binding Text}" />
+
+            <Label Text="Edad" FontSize="22" Padding="10"/>
+            <Entry Placeholder="Edad" Keyboard="Numeric" Text="{Binding Edad}"/>
+
+            <Label Text="Sexo" FontSize="22" Padding="10"/>
+            <Entry Placeholder="Por favor seleccione el sexo" Text="{Binding Sexo}" />
+
+            <Label Text="Escriba alguna otra enfermedad" FontSize="22" Padding="10"/>
+            <Entry Placeholder="Enfermedades" Text="{Binding Enfermedad}"/>
+
+            <Label Text="Fecha de consulta" FontSize="22" Padding="10"/>
+            <DatePicker MinimumDate="1980-01-01" MaximumDate="2040-12-31" Date="{Binding Fecha}" />
+
+            
+
+            <Label Text="Diferencia entre la superficie anterior de la córnea y la esfera de referencia" FontSize="22" Padding="10"/>
+            <Entry Placeholder=" Diff Ant (mm)" Keyboard="Numeric" x:Name="Ant" Text="{Binding Ant}" />
+
+            <Label Text="Diferencia entre la superficie posterior de la córnea y la esfera de referencia" FontSize="22" Padding="10"/>
+            <Entry Placeholder=" Diff Post (mm)" Keyboard="Numeric" x:Name="Post" Text="{Binding Post}"/>
+
+            <Label Text="Sim K máximo" FontSize="22" Padding="10"/>
+            <Entry Placeholder=" K máx D" Keyboard="Numeric" x:Name="Kmax" Text="{Binding Kmax}"/>
+
+            <Label Text="Sim K mínimo" FontSize="22" Padding="10"/>
+            <Entry Placeholder=" K min D" Keyboard="Numeric" x:Name="Kmin" Text="{Binding Kmin}"/>
+
+            <Label Text="Queratometría Central" FontSize="22" Padding="10"/>
+            <Entry Placeholder=" Mean Pwr" Keyboard="Numeric" x:Name="Mean" Text="{Binding Mean}"/>
+
+            <Label Text="Valor axial de la querometría simulada" FontSize="22" Padding="10"/>
+            <Entry Placeholder="Sim K's (°)" Keyboard="Numeric" x:Name="Sim" Text="{Binding Sim}"/>
+
+            <Label Text="Potencia astigmática" FontSize="22" Padding="10"/>
+            <Entry Placeholder="Astig Pwr" Keyboard="Numeric" x:Name="Astig" Text="{Binding Astig}"/>
+
+            <Label Text="Espesor corneal" FontSize="22" Padding="10"/>
+            <Entry Placeholder="Thinnest um" Keyboard="Numeric" x:Name="Thin" Text="{Binding Thin}"/>
+
+
+            <Entry Placeholder="Estado del paciente" x:Name="Analisis" FontSize="20" TextColor="Black" IsEnabled="False" HeightRequest="100" Text="{Binding Analisis}"/>
+
+
+
+            <StackLayout>
+                <Button Text="Analizar los datos" Clicked="Button_Clicked"
+                     TextColor="White"
+                     Margin="20,0"
+                     VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Text="Guardar"
+                    Clicked="OnSaveButtonClicked" />
+                <Button Grid.Column="1"
+                    Background="Red"
+                    Text="Eliminar"
+                    Clicked="OnDeleteButtonClicked" />
+            </Grid>
+        </StackLayout>
+
+    </ScrollView>
+
+    
+
+</ContentPage>

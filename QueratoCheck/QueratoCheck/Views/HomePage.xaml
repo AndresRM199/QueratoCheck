@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QueratoCheck.HomePage"
+             Title=" Queratocheck">
+
+    <ContentPage.Resources>
+        <!-- Implicit styles -->
+        <Style TargetType="{x:Type ListView}" CanCascade="False">
+            <Setter Property="BackgroundColor"
+                    Value="{StaticResource AppBackgroundColor}" />
+        </Style>
+        
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Agregar"
+                     Clicked="OnNoteAddedClicked" />
+        <ToolbarItem Text="Resultados"
+                     Clicked="ResultClicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+          
+            <Image Source="Captura.jpg">
+                
+            </Image>
+
+            <Button Grid.Row="2"
+                     BackgroundColor="Blue"
+                     Command="{Binding ExportToExcelCommand}"
+                     Text="Exportar datos a excel"
+                     TextColor="White"
+                     Margin="5"
+                     VerticalOptions="CenterAndExpand" />
+            <ListView Grid.Row="1"
+                      x:Name="listView"
+                      Margin="{StaticResource PageMargin}"
+                      ItemSelected="OnListViewItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Text}"
+                          TextColor="Black"
+                          Detail="{Binding Date}" />
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+    
+    <!--<ListView x:Name="listView"
+              Margin="{StaticResource PageMargin}"
+              ItemSelected="OnListViewItemSelected">
+        <ListView.Header>
+            --><!--<Image Source="Captura.jpg">
+
+            </Image>--><!--
+            <StackLayout>
+                <Button BackgroundColor="Blue"
+                     Command="{Binding ExportToExcelCommand}"
+                     Text="Exportar datos a excel"
+                     TextColor="White"
+                     Margin="20,0"
+                     VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+        </ListView.Header>
+        
+        
+
+        <ListView.SelectedItem>
+            <Button Text="Resultados" Clicked="ResultClicked"
+                     TextColor="White"
+                     Margin="20,20"
+                     VerticalOptions="CenterAndExpand" />
+        </ListView.SelectedItem>
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding Text}"
+                          TextColor="Black"
+                          Detail="{Binding Date}" />
+
+            </DataTemplate>
+        </ListView.ItemTemplate>
+
+    </ListView>-->
+    
+
+</ContentPage>
